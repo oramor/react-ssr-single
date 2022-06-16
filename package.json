@@ -1,0 +1,26 @@
+{
+  "name": "react-ssr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oramor/react-ssr.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oramor/react-ssr/issues"
+  },
+  "homepage": "https://github.com/oramor/react-ssr#readme",
+  "dependencies": {
+    "fastify": "^4.0.3",
+    "handlebars": "^4.7.7",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
