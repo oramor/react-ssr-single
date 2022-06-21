@@ -5,7 +5,7 @@
     "main": "index.js",
     "type": "commonjs",
     "scripts": {
-        "sb": "rm -r packages/consumer/_server && tsc --build packages/consumer",
+        "sb": "tsc -b --clean packages/consumer",
         "wb": "webpack --mode development",
         "s": "node /home/romaro/react-ssr-single/packages/consumer/_server/server.js"
     },

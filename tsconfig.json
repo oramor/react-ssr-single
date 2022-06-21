@@ -23,6 +23,11 @@
         "esModuleInterop": true,
         "allowSyntheticDefaultImports": true
     },
+    "references": [
+        {
+            "path": "packages/consumer"
+        }
+    ],
     "exclude": [
         "node_modules"
     ],
