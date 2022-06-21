@@ -2,25 +2,21 @@
     "extends": "../../tsconfig.json",
     "compilerOptions": {
         "module": "commonjs",
-        "outDir": "_dist",
+        "rootDir": ".",
+        "outDir": "_server",
         "target": "ESNext",
         "moduleResolution": "Node",
         "allowSyntheticDefaultImports": true,
         "useUnknownInCatchVariables": false,
-        "composite": true,
         "declaration": true,
-        "declarationMap": true
+        "declarationMap": true,
+        "jsx": "react-jsx"
     },
     "include": [
-        "**/*",
-        "../../globals.d.ts"
+        "**/*"
     ],
     "exclude": [
-        "_dist"
-    ],
-    "references": [
-        {
-            "path": "../web"
-        }
-    ],
+        "_server",
+        "_web"
+    ]
 }

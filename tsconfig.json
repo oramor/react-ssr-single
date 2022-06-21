@@ -1,7 +1,6 @@
 {
     "compilerOptions": {
         "strict": true,
-        "rootDir": ".",
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "allowUnreachableCode": false,
@@ -22,17 +21,8 @@
             "ESNext"
         ],
         "esModuleInterop": true,
-        "allowSyntheticDefaultImports": true,
-        "jsx": "react-jsx"
+        "allowSyntheticDefaultImports": true
     },
-    "references": [
-        {
-            "path": "./packages/server"
-        },
-        {
-            "path": "./packages/web"
-        }
-    ],
     "exclude": [
         "node_modules"
     ],

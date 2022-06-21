@@ -1,12 +1,13 @@
 {
-    "name": "react-ssr",
+    "name": "react-ssr-single",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
     "type": "commonjs",
     "scripts": {
-        "sb": "tsc --build packages/server",
-        "wb": "webpack --mode development"
+        "sb": "rm -r packages/consumer/_server && tsc --build packages/consumer",
+        "wb": "webpack --mode development",
+        "s": "node /home/romaro/react-ssr-single/packages/consumer/_server/server.js"
     },
     "repository": {
         "type": "git",

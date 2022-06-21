@@ -1,13 +1,13 @@
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
-const __dirname = '/home/romaro/react-ssr/packages/web/';
-const dstPath = __dirname + '_dist';
+const __dirname = '/home/romaro/react-ssr-single/packages/consumer/';
+const dstPath = __dirname + '_web';
 const srcPath = __dirname + '';
 const tplPath = __dirname + 'pages/MainPage';
 
 export default {
-    entry: './main.tsx',
+    entry: './project/web.ts',
     context: srcPath,
     output: {
         path: dstPath,

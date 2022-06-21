@@ -1,12 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 //import Fastify, { FastifyInstance } from 'fastify';
-const MainPageServ_1 = require("../web/pages/MainPage/MainPageServ");
-const TemplateService_1 = require("./TemplateService");
+const MainPageServ_1 = require("./pages/MainPage/MainPageServ");
+const TemplateService_1 = require("./services/TemplateService");
+console.log('-------------');
 const page = new MainPageServ_1.MainPageServ();
 const placeholders = page.placeholders;
 // Handlebars
-const fileDir = '/home/romaro/react-ssr/packages/web/pages/MainPage/';
+const fileDir = '/home/romaro/react-ssr-single/packages/consumer/pages/MainPage/';
 const fileName = 'MainPage.hbs';
 const path = fileDir + fileName;
 const templateService = new TemplateService_1.TemplateService();
