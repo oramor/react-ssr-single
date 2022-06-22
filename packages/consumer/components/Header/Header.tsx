@@ -2,7 +2,7 @@ import { ReactElement } from 'react';
 
 export type fnComponent = () => ReactElement;
 
-export function HeaderWeb(): ReactElement {
+export function Header(): ReactElement {
     const onClickHandler = () => {
         alert('Hello!');
     };

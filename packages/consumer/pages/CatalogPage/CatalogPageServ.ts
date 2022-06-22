@@ -7,7 +7,7 @@ type PageComponentNode = {
     component: fnComponent;
 };
 
-export class MainPageServ {
+export class CatalogPageServ {
     public components: PageComponentNode[];
     private reactRenders: ReactRenders;
     constructor() {

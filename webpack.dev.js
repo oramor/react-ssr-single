@@ -9,14 +9,14 @@ const outDir = path.join(projDir, '_web');
 const srcDir = path.join(projDir, '');
 const tplDir = path.join(outDir, 'pages');
 
-const pages = ['MainPage'];
+const pages = ['MainPage', 'CatalogPage'];
 
 function getPageEntryPoints() {
     const obj = {};
 
     pages.forEach((pageName) => {
         //const templatePath = path.join('pages', pageName, pageName + '.tsx');
-        const templatePath = `./pages/${pageName}/${pageName}.tsx`;
+        const templatePath = `.${path.sep}` + path.join('pages', pageName, pageName + 'Chunk.tsx');
         obj[pageName] = templatePath;
     });
 
@@ -37,10 +37,9 @@ function getPagePlugins() {
                 template: path.join('pages', pageName, pageName + '.ejs'),
                 filename: path.join('views', pageName + '.hbs'),
                 /**
-                 * Название чанки (второй параметр) должно совпадать
-                 * с названием страницы (расширение не указывается)
+                 * Элементами массива являются названия чанок
+                 * из объекта, переданного в опцию entry
                  */
-                //TODO сейчас не удается называть файлы по шаблону PageNameFront.js
                 chunks: ['web', pageName],
             }),
         );
@@ -103,16 +102,14 @@ export default {
         minimize: false,
         splitChunks: {
             cacheGroups: {
+                /**
+                 * Все импорты, которые приходят из node_modules,
+                 * будут упакованы в этот чанк
+                 */
                 vendors: {
-                    name: 'vendor-libs',
+                    name: 'vendors',
                     test: /[\\/]node_modules[\\/]/,
                     priority: -10,
-                    chunks: 'initial',
-                },
-                common: {
-                    name: 'chunk-common',
-                    minChunks: 2,
-                    priority: -20,
                     chunks: 'initial',
                     reuseExistingChunk: true,
                 },
