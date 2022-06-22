@@ -11,10 +11,8 @@ const tplDir = path.join(outDir, 'pages');
 
 const pages = ['MainPage'];
 
-function getEntryPoints() {
-    const obj = {
-        index: path.join(projDir, 'web.ts'),
-    };
+function getPageEntryPoints() {
+    const obj = {};
 
     pages.forEach((pageName) => {
         //const templatePath = path.join('pages', pageName, pageName + '.tsx');
@@ -43,7 +41,7 @@ function getPagePlugins() {
                  * с названием страницы (расширение не указывается)
                  */
                 //TODO сейчас не удается называть файлы по шаблону PageNameFront.js
-                chunks: ['index', pageName],
+                chunks: ['web', pageName],
             }),
         );
 
@@ -58,11 +56,14 @@ function getPagePlugins() {
 
 export default {
     mode: 'development',
-    entry: getEntryPoints(),
+    entry: {
+        web: path.join(projDir, 'web.ts'),
+        ...getPageEntryPoints(),
+    },
     context: srcDir,
     output: {
         path: outDir,
-        filename: '[name].bundle.js',
+        filename: 'js/[name].js',
     },
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],
@@ -103,7 +104,7 @@ export default {
         splitChunks: {
             cacheGroups: {
                 vendors: {
-                    name: 'chunk-vendor',
+                    name: 'vendor-libs',
                     test: /[\\/]node_modules[\\/]/,
                     priority: -10,
                     chunks: 'initial',
