@@ -9,7 +9,7 @@ const outDir = path.join(projDir, '_web');
 const srcDir = path.join(projDir, '');
 const tplDir = path.join(outDir, 'pages');
 
-const pages = ['MainPage', 'CatalogPage'];
+const pages = ['MainPage', 'AboutPage', 'AppPage'];
 
 function getPageEntryPoints() {
     const obj = {};
