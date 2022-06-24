@@ -1,0 +1,39 @@
+{
+    "compilerOptions": {
+        "strict": true,
+        "rootDir": ".",
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "allowUnreachableCode": false,
+        "allowUnusedLabels": false,
+        "exactOptionalPropertyTypes": true,
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitAny": true,
+        "noImplicitOverride": false,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "useUnknownInCatchVariables": true,
+        "noPropertyAccessFromIndexSignature": true,
+        "strictPropertyInitialization": true,
+        "strictNullChecks": true,
+        "lib": [
+            "DOM",
+            "DOM.Iterable",
+            "ESNext"
+        ],
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "jsx": "react-jsx"
+    },
+    "references": [
+        {
+            "path": "./packages/server"
+        },
+        {
+            "path": "./packages/web"
+        }
+    ],
+    "exclude": [
+        "node_modules"
+    ],
+}

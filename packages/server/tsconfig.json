@@ -1,0 +1,21 @@
+{
+    "extends": "../../tsconfig.json",
+    "compilerOptions": {
+        "module": "commonjs",
+        "rootDir": ".",
+        "outDir": "_dist",
+        "target": "ESNext",
+        "moduleResolution": "Node",
+        "allowSyntheticDefaultImports": true,
+        "useUnknownInCatchVariables": false,
+        "composite": true,
+        "declaration": true,
+        "declarationMap": true
+    },
+    "include": [
+        "**/*"
+    ],
+    "exclude": [
+        "_dist"
+    ]
+}
