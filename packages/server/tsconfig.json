@@ -2,7 +2,6 @@
     "extends": "../../tsconfig.json",
     "compilerOptions": {
         "module": "commonjs",
-        "rootDir": ".",
         "outDir": "_dist",
         "target": "ESNext",
         "moduleResolution": "Node",
@@ -13,9 +12,15 @@
         "declarationMap": true
     },
     "include": [
-        "**/*"
+        "**/*",
+        "../../globals.d.ts"
     ],
     "exclude": [
         "_dist"
-    ]
+    ],
+    "references": [
+        {
+            "path": "../web"
+        }
+    ],
 }
