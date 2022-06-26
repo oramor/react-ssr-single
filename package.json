@@ -3,18 +3,19 @@
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
-    "type": "module",
+    "type": "commonjs",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "sb": "tsc --build packages/server",
+        "wb": "webpack --mode development"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/oramor/react-ssr.git"
+        "url": "git+https://github.com/oramor/react-ssr-single.git"
     },
     "author": "",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/oramor/react-ssr/issues"
+        "url": "https://github.com/oramor/react-ssr-single/issues"
     },
     "dependencies": {
         "fastify": "^4.0.3",
