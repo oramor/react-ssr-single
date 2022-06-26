@@ -9,7 +9,8 @@
         "declarationMap": true
     },
     "include": [
-        "**/*"
+        "**/*",
+        "../../globals.d.ts"
     ],
     "exclude": [
         "_dist",

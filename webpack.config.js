@@ -4,10 +4,10 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 const __dirname = '/home/romaro/react-ssr/packages/web/';
 const dstPath = __dirname + '_dist';
 const srcPath = __dirname + '';
+const tplPath = __dirname + 'pages/MainPage';
 
 export default {
     entry: './main.tsx',
-    mode: 'development',
     context: srcPath,
     output: {
         path: dstPath,
@@ -34,7 +34,7 @@ export default {
     ],
     devServer: {
         static: {
-            directory: srcPath,
+            directory: tplPath,
         },
         compress: true,
         port: 9000,
