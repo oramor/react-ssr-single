@@ -1,2 +1,4 @@
 node_modules/
 yarn.lock
+packages/**/_server/
+packages/**/_web/

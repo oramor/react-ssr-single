@@ -3,10 +3,11 @@
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
-    "type": "commonjs",
+    "type": "module",
     "scripts": {
-        "sb": "tsc -b --clean packages/consumer",
-        "wb": "webpack --mode development",
+        "sb": "rimraf packages/consumer/_server && tsc -b packages/consumer",
+        "wbd": "webpack --config webpack.dev.js",
+        "wbp": "webpack --config webpack.prod.js",
         "s": "node /home/romaro/react-ssr-single/packages/consumer/_server/server.js"
     },
     "repository": {
@@ -30,8 +31,10 @@
         "@types/react-dom": "^18.0.5",
         "clean-webpack-plugin": "^4.0.0",
         "css-loader": "^6.7.1",
+        "ejs-compiled-loader": "^3.1.0",
         "html-webpack-plugin": "^5.5.0",
         "mini-css-extract-plugin": "^2.6.1",
+        "rimraf": "^3.0.2",
         "sass": "^1.53.0",
         "sass-loader": "^13.0.0",
         "ts-loader": "^9.3.1",

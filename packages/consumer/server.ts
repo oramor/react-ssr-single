@@ -1,9 +1,10 @@
 //import Fastify, { FastifyInstance } from 'fastify';
 import { MainPageServ } from './pages/MainPage/MainPageServ';
 import { TemplateService } from './services/TemplateService';
-console.log('-------------');
+
 const page = new MainPageServ();
 const placeholders = page.placeholders;
+
 // Handlebars
 const fileDir = '/home/romaro/react-ssr-single/packages/consumer/pages/MainPage/';
 const fileName = 'MainPage.hbs';
