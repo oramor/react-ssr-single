@@ -25,7 +25,7 @@
     },
     "references": [
         {
-            "path": "packages/consumer"
+            "path": "packages/consumer/tsconfig.server.json"
         }
     ],
     "exclude": [

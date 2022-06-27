@@ -5,9 +5,10 @@
     "main": "index.js",
     "type": "module",
     "scripts": {
-        "sb": "rimraf packages/consumer/_server && tsc -b packages/consumer",
-        "wbd": "webpack --config webpack.dev.js",
-        "wbp": "webpack --config webpack.prod.js",
+        "sb": "rimraf packages/consumer/_server && tsc -p packages/consumer/tsconfig.server.json",
+        "wbd": "npx webpack --config webpack.dev.js",
+        "wbp": "npx webpack --config webpack.prod.js",
+        "serv": "npx webpack serve --config webpack.dev.js",
         "s": "node /home/romaro/react-ssr-single/packages/consumer/_server/server.js"
     },
     "repository": {
