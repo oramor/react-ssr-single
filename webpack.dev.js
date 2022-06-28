@@ -2,17 +2,63 @@ import { URL } from 'url';
 import path from 'path';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import HtmlWebpackInjector from 'html-webpack-injector';
 
 const projDir = path.join(new URL('.', import.meta.url).pathname, 'packages/consumer');
 const outDir = path.join(projDir, '_web');
 const srcDir = path.join(projDir, '');
-const tplDir = path.join(projDir, 'pages');
+const tplDir = path.join(outDir, 'pages');
 
-const entries = ['./pages/MainPage/MainPage.tsx'];
+const pages = ['MainPage'];
+
+function getEntryPoints() {
+    const obj = {
+        index: path.join(projDir, 'web.ts'),
+    };
+
+    pages.forEach((pageName) => {
+        //const templatePath = path.join('pages', pageName, pageName + '.tsx');
+        const templatePath = `./pages/${pageName}/${pageName}.tsx`;
+        obj[pageName] = templatePath;
+    });
+
+    return obj;
+}
+
+function getPagePlugins() {
+    const arr = [];
+
+    pages.forEach((pageName) => {
+        /**
+         * Пушим инстансы HtmlWebpackPlugin, поскольку
+         * на каждую страницу требуется отдельный
+         * экземпляр
+         */
+        arr.push(
+            new HtmlWebpackPlugin({
+                template: path.join('pages', pageName, pageName + '.ejs'),
+                filename: path.join('views', pageName + '.hbs'),
+                /**
+                 * Название чанки (второй параметр) должно совпадать
+                 * с названием страницы (расширение не указывается)
+                 */
+                //TODO сейчас не удается называть файлы по шаблону PageNameFront.js
+                chunks: ['index', pageName],
+            }),
+        );
+
+        /**
+         * Плагин добавляет к странице ссылку на чанку
+         */
+        arr.push(new HtmlWebpackInjector());
+    });
+
+    return arr;
+}
 
 export default {
     mode: 'development',
-    entry: entries,
+    entry: getEntryPoints(),
     context: srcDir,
     output: {
         path: outDir,
@@ -51,32 +97,27 @@ export default {
             },
         ],
     },
-    plugins: [
-        new CleanWebpackPlugin(),
-        new HtmlWebpackPlugin({
-            template: path.join(tplDir, 'MainPage/MainPage.ejs'),
-            filename: './[name].hbs',
-        }),
-    ],
-    // optimization: {
-    //     splitChunks: {
-    //         cacheGroups: {
-    //             vendors: {
-    //                 name: 'chunk-vendor',
-    //                 test: /[\\/]node_modules[\\/]/,
-    //                 priority: -10,
-    //                 chunks: 'initial',
-    //             },
-    //             common: {
-    //                 name: 'chunk-common',
-    //                 minChunks: 2,
-    //                 priority: -20,
-    //                 chunks: 'initial',
-    //                 reuseExistingChunk: true,
-    //             },
-    //         },
-    //     },
-    // },
+    plugins: [new CleanWebpackPlugin(), ...getPagePlugins()],
+    optimization: {
+        minimize: false,
+        splitChunks: {
+            cacheGroups: {
+                vendors: {
+                    name: 'chunk-vendor',
+                    test: /[\\/]node_modules[\\/]/,
+                    priority: -10,
+                    chunks: 'initial',
+                },
+                common: {
+                    name: 'chunk-common',
+                    minChunks: 2,
+                    priority: -20,
+                    chunks: 'initial',
+                    reuseExistingChunk: true,
+                },
+            },
+        },
+    },
     devServer: {
         static: {
             directory: 'packages/consumer/_web',

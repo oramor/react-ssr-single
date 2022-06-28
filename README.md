@@ -25,5 +25,5 @@ yarn add -D sass sass-loader mini-css-extract-plugin css-loader
 
 # HTML
 ```
-yarn add -D html-webpack-plugin ejs-compiled-loader
+yarn add -D html-webpack-plugin ejs-compiled-loader html-webpack-injector
 ``` 
