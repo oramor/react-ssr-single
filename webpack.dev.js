@@ -15,7 +15,6 @@ function getPageEntryPoints() {
     const obj = {};
 
     pages.forEach((pageName) => {
-        //const templatePath = path.join('pages', pageName, pageName + '.tsx');
         const templatePath = `.${path.sep}` + path.join('pages', pageName, pageName + 'Chunk.tsx');
         obj[pageName] = templatePath;
     });
