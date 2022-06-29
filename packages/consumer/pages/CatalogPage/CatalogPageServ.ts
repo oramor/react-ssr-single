@@ -1,13 +1,13 @@
 import { renderToString } from 'react-dom/server';
-import { fnComponent } from '../../components/Header/Header.js';
-import { Header } from '../../components/Header/Header.js';
+import { fnComponent } from '../../components/Header/Header';
+import { Header } from '../../components/Header/Header';
 
 type PageComponentNode = {
     placeholder: string;
     component: fnComponent;
 };
 
-export class MainPageServ {
+export class CatalogPageServ {
     public components: PageComponentNode[];
     private reactRenders: ReactRenders;
     constructor() {
