@@ -1,6 +1,6 @@
 import { renderToString } from 'react-dom/server';
-import { fnComponent } from '../../components/Header/Header';
-import { HeaderWeb } from '../../components/Header/Header';
+import { fnComponent } from '../../components/Header/Header.js';
+import { HeaderWeb } from '../../components/Header/Header.js';
 
 type PageComponentNode = {
     placeholder: string;

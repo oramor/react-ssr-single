@@ -1,18 +1,19 @@
 //import Fastify, { FastifyInstance } from 'fastify';
-import { MainPageServ } from './pages/MainPage/MainPageServ';
-import { TemplateService } from './services/TemplateService';
+import { MainPageServ } from './pages/MainPage/MainPageServ.js';
+import { TemplateService } from './services/TemplateService.js';
+import path from 'path';
+import config from './config.js';
 
 const page = new MainPageServ();
 const placeholders = page.placeholders;
 
 // Handlebars
-const fileDir = '/home/romaro/react-ssr-single/packages/consumer/pages/MainPage/';
 const fileName = 'MainPage.hbs';
-const path = fileDir + fileName;
+const filePath = path.join(config.paths.rootDir, config.paths.viewsDir, fileName);
 const templateService = new TemplateService();
 
 templateService
-    .render(path, placeholders)
+    .render(filePath, placeholders)
     .then((rs) => console.log(rs))
     .catch((err) => console.log(err.message));
 
